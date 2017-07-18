@@ -112,7 +112,7 @@ module.exports=[
                 "messageKey": "textcol",
                 "label": "Primary text colour",
                 "description": "Set this to colour the time and date text.",
-                "defaultValue": "white",
+                "defaultValue": "#FFFFFF",
                 "sunlight": false,
                 "capabilities": ["COLOR"]
             },
@@ -121,7 +121,7 @@ module.exports=[
                 "messageKey": "othertextcol",
                 "label": "Secondary text colour",
                 "description": "Set this to colour the week desc., temperature, battery num., AM/PM or seconds, and steps text.",
-                "defaultValue": "white",
+                "defaultValue": "#FFFFFF",
                 "sunlight": false,
                 "capabilities": ["COLOR"]
             },
@@ -129,7 +129,7 @@ module.exports=[
                 "type": "color",
                 "messageKey": "backgroundcol",
                 "label": "Background colour",
-                "defaultValue": "black",
+                "defaultValue": "#000000",
                 "sunlight": false,
                 "capabilities": ["COLOR"]
             },

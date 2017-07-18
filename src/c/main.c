@@ -176,11 +176,11 @@ static bool prev_bt_status = false;
   static int speed = 5;
 #endif
 
-#ifdef PBL_HEALTH
 static TextLayer *steps_label;
 static GBitmap *footprint_icon;
 static BitmapLayer *footprint_layer;
 
+#ifdef PBL_HEALTH
 
 static void health_handler(HealthEventType event, void *context) {
   static char s_value_buffer[20];
@@ -539,6 +539,9 @@ static void tuple_changed_callback( const uint32_t key, const Tuple* tuple_new, 
 
       text_layer_set_text_color(text_time_layer, textcol);
       text_layer_set_text_color(text_date_layer, textcol);
+#else
+      text_layer_set_text_color(text_time_layer, GColorWhite);
+      text_layer_set_text_color(text_date_layer, GColorWhite);		  
 #endif
       }
       break;
@@ -557,8 +560,14 @@ static void tuple_changed_callback( const uint32_t key, const Tuple* tuple_new, 
       text_layer_set_background_color(battery_text_layer, backgroundcol);
       bitmap_layer_set_background_color( bluetooth_layer, backgroundcol);
       bitmap_layer_set_background_color( footprint_layer, backgroundcol);
+#else
+     window_set_background_color(window, GColorBlack);
+
+      text_layer_set_background_color(battery_text_layer, GColorBlack);
+      bitmap_layer_set_background_color( bluetooth_layer, GColorBlack);
+ //     bitmap_layer_set_background_color( footprint_layer, GColorBlack);
 #endif
-      }
+	  }
       break;
 
     case BATTERY_BACKGROUND_KEY:
@@ -628,6 +637,12 @@ static void tuple_changed_callback( const uint32_t key, const Tuple* tuple_new, 
       text_layer_set_text_color(steps_label, othertextcol);
       text_layer_set_text_color(text_secs_ampm_layer, othertextcol);
       text_layer_set_text_color(battery_text_layer, othertextcol);
+#else
+      text_layer_set_text_color(temp_layer, GColorWhite);
+      text_layer_set_text_color(text_week_layer, GColorWhite);
+   //   text_layer_set_text_color(steps_label, GColorWhite);
+      text_layer_set_text_color(text_secs_ampm_layer, GColorWhite);
+      text_layer_set_text_color(battery_text_layer, GColorWhite);
 #endif
       }
       break;
